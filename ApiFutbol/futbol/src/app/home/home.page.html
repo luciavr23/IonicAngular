@@ -1,0 +1,101 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!--<ion-title slot="start"> {{selectedCollection == 'segunda_division' ? 'Segunda División' : 
+      selectedCollection == 'primera_division' ? 'Primera División' : 
+      selectedCollection == 'tercera_division' ? 'Tercera División' : 
+      'Otra División' }} </ion-title>-->
+    <img src="../../assets/laliga.png" slot="start" style="width: 200px; height: 100px; margin-right: 350px;" />
+    <ion-select
+      label="Selecciona colección"
+      interface="popover"
+      label-placement="floating"
+      [(ngModel)]="selectedCollection"
+      style="width: 200px"
+      (ionChange)="guardarOpcion($event)"
+    >
+      <ion-select-option
+        *ngFor="let coleccion of colecciones"
+        [value]="coleccion"
+        >{{coleccion}}</ion-select-option
+      >
+    </ion-select>
+    <ion-buttons slot="end" >
+    <ion-button  *ngIf="open" (click)="loadColeccion()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
+    <ion-button class="search" fill="clear" (click)="abrirModalBusqueda()">
+      <ion-icon slot="icon-only" name="search"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <!--SI EL RESULTADO ES MAYOR QUE 2 EQUIPOS-->
+    <ion-row *ngIf="equipos.length >2">
+      <ion-col size="6" size-md="4" size-lg="4" *ngFor="let object of equipos">
+        <ion-card class="card">
+          <ion-card-header class="header">
+            <ion-icon name="football" size="large"></ion-icon>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-card-title>{{ object.nombre | titlecase }}</ion-card-title>
+            <h4>Estadio: {{ object.estadio }}</h4>
+            <h4>Ciudad: {{ object.ciudad }}</h4>
+            <ion-button class="gradient-button" fill="clear" size="small" (click)="goDetails(object)">Ver detalles</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+      <!--SI EL RESULTADO ES IGUAL A 2 EQUIPOS (PARA Q NO SE DESCUADRE)-->
+    <ion-row *ngIf="equipos.length ==2">
+      <ion-col size="6" size-md="6" size-lg="6" *ngFor="let object of equipos">
+        <ion-card class="card">
+          <ion-card-header class="header">
+            <ion-icon name="football" size="large"></ion-icon>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-card-title>{{ object.nombre | titlecase }}</ion-card-title>
+            <h4>Estadio: {{ object.estadio }}</h4>
+            <h4>Ciudad: {{ object.ciudad }}</h4>
+            <ion-button class="gradient-button" fill="clear" size="small" (click)="goDetails(object)">Ver detalles</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <!--SI EL RESULTADO ES IGUAL A 1 EQUIPO (PARA Q NO SE DESCUADRE)-->
+    <ion-row *ngIf="equipos.length ==1">
+      <ion-col size="12" size-md="12" size-lg="12" *ngFor="let object of equipos">
+        <ion-card class="card">
+          <ion-card-header class="header">
+            <ion-icon name="football" size="large"></ion-icon>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-card-title>{{ object.nombre | titlecase }}</ion-card-title>
+            <h4>Estadio: {{ object.estadio }}</h4>
+            <h4>Ciudad: {{ object.ciudad }}</h4>
+            <ion-button class="gradient-button" fill="clear" size="small" (click)="goDetails(object)">Ver detalles</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goToFirstPage()">Primera</ion-button>
+      <ion-button (click)="goToPreviousPage()">Anterior</ion-button>
+    </ion-buttons>
+    <ion-title>Página {{ currentPage }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="goToNextPage()">Siguiente</ion-button>
+      <ion-button (click)="goToLastPage()">Última</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

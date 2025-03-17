@@ -1,0 +1,130 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+ion-grid {
+  display: flex;
+  justify-content: center; /* Centra el contenido */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten según el espacio disponible */
+  gap: 15px; /* Añadir un espacio entre las cards */
+}
+
+ion-col {
+  display: flex;
+  justify-content: center;
+  width: auto; /* Evita que la columna se estire */
+  flex: 1 0 300px; /* Asegura que cada columna tenga un tamaño mínimo de 300px */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  width: 300px; /* Asegura que la card mantenga su tamaño */
+  height: auto;
+  margin: 10px; /* Añadir espacio entre las cards */
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+  
+  /* Efecto hover para las cards */
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilos del header */
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Alineación vertical */
+  }
+  
+  /* Alineación de los iconos en el header */
+  .header ion-icon {
+    margin-top: 15px;
+    font-size: 40px; /* Tamaño del icono */
+    color: #00744d; /* Color del icono */
+  }
+  ion-list ion-item{
+    color: gray;
+  }
+  /* Ajuste del ion-card-content */
+  ion-card-content {
+    margin-top:25px;
+    padding: 0; /* Elimina el padding por defecto */
+  }
+  ion-card-content ion-card-title {
+    font-size: 20px; /* Tamaño del título */
+    font-weight: bold; /* Texto en negrita */
+  }
+
+
+
+  /* Restablecer el estilo de los botones */
+  .gradient-button {
+    margin-top: 40px;
+    background: linear-gradient(45deg, #289266, #7cd3a3); /* Gradiente de fondo */
+    color: white;
+    font-weight: bold;
+    border: none; /* Eliminar borde predeterminado */
+    border-radius: 20px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave en el color */
+  }
+  .gradient-button:hover {
+    background: linear-gradient(45deg, #67bb98, #a0ffcb); /* Gradiente más claro */
+  }
+ 
+  /* Efectos de la búsqueda */
+  .search ion-icon {
+    font-size: 30px;
+    margin-right: 25px;
+    color: gray;
+  }
+  
+  
+  /* Estilo para el botón del select (flecha de despliegue) */
+  ion-select::part(icon) {
+    color: #35774f; /* Color de la flecha */
+    font-size: 20px; /* Tamaño de la flecha */
+  }

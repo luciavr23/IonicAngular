@@ -1,0 +1,136 @@
+ion-content {
+  --background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+@keyframes backgroundFade {
+  0% {
+    --background: #f4f4f4;
+  }
+  100% {
+    --background: #e0e0e0; 
+  }
+}
+
+ion-card {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  opacity: 0;
+  animation: slideUp 1s ease-in-out forwards;
+}
+ion-card:hover ion-card-content p {
+  font-size: 16px; 
+  transition: font-size 0.3s ease-in-out;
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+ion-card-title {
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+ion-card-content {
+  font-size: 16px;
+  text-align: center;
+}
+
+form {
+  width: 100%;
+  max-width: 700px;
+  background: white;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  opacity: 0;
+  animation: slideUp 1s ease-in-out forwards;
+  animation-delay: 0.2s;
+}
+
+ion-item {
+  --border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+ion-label {
+  font-weight: bold;
+  color: #333;
+}
+
+ion-input,
+ion-textarea {
+  --padding-start: 12px;
+  background: #fff;
+  border-radius: 8px;
+  margin-top: 20px;
+  color: #333;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+ion-icon {
+  font-size: 25px;
+}
+
+ion-button {
+  --background: #616161;
+  --border-radius: 8px;
+  margin-top: 15px;
+  font-size: 16px;
+  transition: transform 0.3s ease-in-out;
+}
+
+ion-button:hover {
+  --background: #313131;
+  transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el ratón */
+}
+ion-item p{
+  color: red;
+  font-size: 12px;
+}
+
+ion-toolbar {
+  --background: #616161;
+  --color: white;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes toolbarAnim {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

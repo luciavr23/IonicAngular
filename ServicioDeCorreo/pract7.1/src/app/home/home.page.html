@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Servicio de Correo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Ubicación Actual</ion-card-title>
+        <ion-icon name="location-outline"></ion-icon>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Latitud: {{latitude}}, Longitud: {{longitude}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <form [formGroup]="contactForm" #formElement (ngSubmit)="sendEmail()">
+    <ion-item>
+      <ion-label position="stacked">Tu Nombre</ion-label>
+      <ion-input type="text" formControlName="user_name" name="user_name" required></ion-input>
+      <ion-item *ngIf="contactForm.get('user_name')?.invalid && contactForm.get('user_name')?.touched">
+        <p *ngIf="contactForm.get('user_name')?.hasError('required')">El nombre es obligatorio.</p>
+      </ion-item>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Correo Destino</ion-label>
+      <ion-input type="email" formControlName="destinity_name" name="destinity_name" required></ion-input>
+      <ion-item *ngIf="contactForm.get('destinity_name')?.invalid && contactForm.get('destinity_name')?.touched">
+        <p *ngIf="contactForm.get('destinity_name')?.hasError('required')">El correo es obligatorio.</p>
+      </ion-item>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Mensaje</ion-label>
+      <ion-textarea formControlName="message" name="message" required></ion-textarea>
+      <ion-item *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+        <p *ngIf="contactForm.get('message')?.hasError('required')">El mensaje es obligatorio.</p>
+      </ion-item>
+    </ion-item>
+  
+    <ion-button expand="full" type="submit" [disabled]="!contactForm.valid">Enviar</ion-button>
+  </form>
+  
+</ion-content>

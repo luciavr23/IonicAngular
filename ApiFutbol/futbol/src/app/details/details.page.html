@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ equipo.nombre | titlecase }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title
+        >{{ equipo.nombre | titlecase }} -
+        {{selectedCollection == 'segunda_division' ? 'Segunda División' : 
+        selectedCollection == 'primera_division' ? 'Primera División' : 
+        selectedCollection == 'tercera_division' ? 'Tercera División' : 
+        'Otra División' }}</ion-card-title
+      >
+    </ion-card-header>
+
+    <ion-card-content>
+      <h4>Entrenador: {{ equipo.entrenador }}</h4>
+      <h4>Estadio: {{ equipo.estadio }}</h4>
+      <h4>Año de fundación: {{ equipo.anio_fundacion }}</h4>
+      <h4>Puntos: {{ equipo.puntos==null ? 'No hay registro de puntos': equipo.puntos  }}</h4>
+      <h4>Ciudad: {{ equipo.ciudad }}</h4>
+      <ion-button  fill="clear"  (click)="mostrar()" >
+        <span class="button-text">Mostrar Jugadores</span>
+        <ion-icon name="information-circle"></ion-icon>
+      </ion-button>
+      <ion-list *ngIf="show">
+        <ion-label>Jugadores</ion-label>
+        <ion-item *ngFor="let jugador of equipo.jugadores">
+          <h4>{{jugador}}</h4>
+        </ion-item>
+      </ion-list>
+      <h4 *ngIf="equipo.jugadores.length==0">No hay jugadores</h4>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

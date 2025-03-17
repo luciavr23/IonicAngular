@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ pokemon.name | titlecase }}</ion-title>
+    <ion-button slot="end" class="closeButton" (click)="cerrarModal()">
+      <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Card con bordes -->
+  <ion-card class="cabecera" *ngIf="pokemon.spriteActive">
+    <ion-card-header class="header">
+      <img
+        [src]="pokemon.spriteActive"
+        alt="{{ pokemon.name }}"
+        (mouseenter)="pokemon.spriteActive = pokemon.spriteGifBack ?? pokemon.spriteGifFront"
+        (mouseleave)="pokemon.spriteActive = pokemon.spriteGifFront"
+        [ngClass]="{'increase-size': !isGif(pokemon.spriteActive)}"/>
+    </ion-card-header>
+
+    <ion-card-content *ngIf="pokemon.spriteActive">
+      <ion-card-title>{{ pokemon.name | titlecase }}</ion-card-title>
+    </ion-card-content>
+  </ion-card>
+  <!-- Card sin bordes -->
+  <ion-card class="contenido">
+    <ion-card-content>
+      <ion-card-title>Altura-</ion-card-title>
+      <ion-card-subtitle>{{ pokemon.height }} m</ion-card-subtitle>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-card-title>Peso-</ion-card-title>
+      <ion-card-subtitle>{{ pokemon.weight }} kg</ion-card-subtitle>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-card-title (click)="updateMostrar()">Habilidades</ion-card-title>
+      <ion-icon name="chevron-forward-outline" *ngIf="!mostrar" (click)="updateMostrar()"></ion-icon>
+      <ion-icon name="chevron-back-outline" *ngIf="mostrar" (click)="updateMostrar()"></ion-icon>
+      <ion-list *ngIf="mostrar">
+        <ion-item *ngFor="let ability of pokemon.abilities" >
+          <ion-label class="habilidades">
+            <h2 >{{ability}}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-item *ngIf="pokemon.abilities.length === 0 && mostrar">
+        <ion-label>
+          <h2 >No se encontraron habilidades</h2></ion-label>
+      </ion-item>
+    </ion-card-content>
+
+    <ion-label>Tipos:</ion-label>
+    <ion-list *ngFor="let type of pokemon.types">
+      <ion-item>
+        <div class="boton" [ngClass]="type?.toLowerCase()">
+          {{ type ?? 'undefined' }}
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-item *ngIf="pokemon.types.length==0">
+      <div class="boton" class="boton undefined">
+        Undefined
+      </div>
+    </ion-item>
+  </ion-card>
+  
+</ion-content>

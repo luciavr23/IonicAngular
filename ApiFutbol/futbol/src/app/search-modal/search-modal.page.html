@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Búsqueda</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!--  <ion-item>
+    <ion-label position="stacked">Ciudad</ion-label>
+    <ion-input
+      [(ngModel)]="ciudad"
+      placeholder="Introduce ciudad"
+    ></ion-input>
+  </ion-item>-->
+  <ion-item>
+    <ion-label position="stacked">Ciudad</ion-label>
+
+    <ion-select
+      [(ngModel)]="ciudad"
+      placeholder="Selecciona una ciudad"
+    >
+      <ion-select-option
+        *ngFor="let ciudad of ciudades"
+        [value]="ciudad"
+        >{{ ciudad }}</ion-select-option
+      >
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Puntos</ion-label>
+    <ion-input
+      [(ngModel)]="puntos"
+      placeholder="Introduce el mínimo de puntos"
+    ></ion-input>
+  </ion-item>
+  <ion-button fill="clear" class="search-button" (click)="search()"
+    >Buscar</ion-button>
+</ion-content>

@@ -1,0 +1,179 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+ion-toolbar {
+  --background: rgb(12, 33, 226);
+  color: yellow;
+}
+ion-searchbar {
+  --background: rgba(255, 255, 255, 0.8) !important;
+  --color: rgb(12, 33, 226) !important;
+  --placeholder-color: rgb(58, 58, 58) !important;
+}
+img {
+  width: 90px; 
+  height: auto;
+}
+
+.pokedex {
+  width: 200px;
+  height: 60px;
+  margin-left: 15px;
+}
+ion-searchbar {
+  max-width: 300px;
+  text-align: center;
+}
+
+.card {
+  align-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+ion-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.habilidades{
+  width: 100%;
+}
+//incrementar los .png
+.increase-size {
+  width: 100px;  
+  height: auto;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #696969; 
+}
+.boton {
+  font-size: 0.8em;
+  width: 50px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  margin-top: 10px;
+}
+.header {
+  display: flex; /* Hace que los elementos se alineen en fila */
+  align-items: center; /* Alinea los elementos verticalmente al centro */
+  justify-content: center; /* Deja espacio entre el título y el chip */
+}
+
+/* Los colores se basan en el tipo del Pokémon */
+.steel {
+  background-color: gray;
+  color: white;
+}
+.water {
+  background-color: #1e90ff;
+  color: white;
+}
+.bug {
+  background-color: #99b68d;
+  color: white;
+}
+.dragon {
+  background-color: #c2c064;
+  color: white;
+}
+.electric {
+  background-color: #ffd700;
+  color: black;
+}
+.ghost {
+  background-color: #6a5acd;
+  color: white;
+}
+.fire {
+  background-color: red;
+  color: white;
+}
+.fairy {
+  background-color: #ff69b4;
+  color: white;
+}
+.ice {
+  background-color: #00ffff;
+  color: black;
+}
+.fighting {
+  background-color: #ff6347;
+  color: white;
+}
+.normal {
+  background-color: #a9a9a9;
+  color: white;
+}
+.grass {
+  background-color: #228b22;
+  color: white;
+}
+.psychic {
+  background-color: #ff1493;
+  color: white;
+}
+.rock {
+  background-color: #808080;
+  color: white;
+}
+.dark {
+  background-color: #2f4f4f;
+  color: white;
+}
+.ground {
+  background-color: #8b4513;
+  color: white;
+}
+.poison {
+  background-color: #8a2be2;
+  color: white;
+}
+.flying {
+  background-color: #4682b4;
+  color: white;
+}
+.undefined {
+  background-color: #808080;
+  color: white;
+} /* Para el caso de tipo ??? */

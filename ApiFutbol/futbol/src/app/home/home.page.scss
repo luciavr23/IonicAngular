@@ -1,0 +1,35 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+
+
+.search:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+  background-color: rgba(0, 0, 0, 0.1); /* Le da un efecto de resaltado */
+  border-radius: 50%; /* Hace que el fondo sea más suave */
+}
